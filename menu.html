@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3制作3D效果的导航栏</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{ background: #ebebeb;}
+        ul, ul li{ list-style: none;}
+        .nav{
+            width: 720px;
+            height: 65px;
+            line-height:65px;
+            margin: 140px auto 0;
+            background:  #f65f57;
+            border-radius: 8px;
+            box-shadow: 0px 8px 0px #c65f57;
+        }
+        .nav li{
+            position: relative;
+            display: inline-block;
+            padding:0 16px;
+            font-size:16px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,.5);
+            list-style: none outside none;
+        }
+        .nav li:before, .nav li:after{
+            content: "";
+            position: absolute;
+            top:18px;
+            height: 25px;
+            width: 1px;
+        }
+        .nav li:after{
+            right: 0;
+            background: linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0));
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0));
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0));
+            background: -ms-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0));
+            background: -o-linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0));
+        }
+        .nav li:before{
+            left: 0;
+            background: -moz-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+            background: -webkit-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+            background: -o-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+            background: -ms-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+            background: linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+        }
+        .nav li:nth-last-child(1):after{
+            background: none;
+        }
+        .nav li:nth-child(1):before{
+            background:none;
+        }
+        .nav a, .nav a:hover{
+            color:#fff;
+            text-decoration: none;
+        }
+        .nav a{
+            display: inline-block;
+            transition: all 0.2s ease-in;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            -ms-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+        }
+        .nav a:hover{
+            transform: rotate(10deg);
+            -webkit-transform: rotate(10deg);
+            -moz-transform: rotate(10deg);
+            -ms-transform: rotate(10deg);
+            -o-transform: rotate(10deg);
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About me</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Company</a></li>
+        <li><a href="#">YaYap</a></li>
+        <li><a href="#">Contact me</a></li>
+    </ul>
+</body>
+</html>

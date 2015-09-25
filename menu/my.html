@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3重现3D旋转效果的导航条</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul, ul li{
+            list-style: none;
+        }
+        .nav{
+            width:980px;
+            margin:100px auto 100px;
+            background:#FF99CC;
+        }
+        .nav li{
+            float: left;
+            display: block;
+            border-right:1px solid #fff;
+        }
+        .nav li:last-child{
+            border:none;
+        }
+        .nav li a{
+            display: block;
+            font-size:20px;
+            line-height:20px;
+            padding:15px 30px;
+            text-decoration:none;
+            color:#fff;
+        }
+        .three-d{
+            position: relative;
+        }
+        .three-d-box{
+            position: absolute;
+            left:0;
+            top: 0;
+            width:100%;
+            height: 100%;
+            pointer-events: none;
+            -o-pointer-events: none;
+            -moz-pointer-events: none;
+            -ms-pointer-events: none;
+            -webkit-pointer-events: none;
+        }
+        .front, .back{
+            width:100%;
+            height: 100%;
+            padding: 15px 30px;
+            position: absolute;
+            left: 0;
+            top:0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            background:#66CCFF;
+        }
+        /*基本样式*/
+        /*动画样式*/
+        .three-d{
+            perspective: 200px;
+            -webkit-perspective: 200px;
+            -moz-perspective: 200px;
+            -ms-perspective: 200px;
+            -o-perspective: 200px;
+            transition: all .7s linear;
+            -webkit-transition: all .7s linear;
+            -moz-transition: all .7s linear;
+            -ms-transition: all .7s linear;
+            -o-transition: all .7s linear;
+        }
+        .three-d:not(.active):hover .three-d-box,
+        .three-d:not(.active):focus .three-d-box{
+            transform: translateZ(-25px) rotateX(90deg);
+            -webkit-transform: translateZ(-25px) rotateX(90deg);
+            -moz-transform: translateZ(-25px) rotateX(90deg);
+            -ms-transform: translateZ(-25px) rotateX(90deg);
+            -o-transform: translateZ(-25px) rotateX(90deg);
+        }
+        .three-d-box{
+            transform: translateZ(-25px);
+            -webkit-transform: translateZ(-25px);
+            -moz-transform: translateZ(-25px);
+            -ms-transform: translateZ(-25px);
+            -o-transform: translateZ(-25px);
+            transform-style: preserve-3d;
+            trans-webkit-form-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            transition: all .3s ease-out;
+            -webkit-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -ms-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+        }
+        .front{
+            transform: rotateX(0deg) translateZ(25px);
+            -webkit-transform: rotateX(0deg) translateZ(25px);
+            -moz-transform: rotateX(0deg) translateZ(25px);
+            -ms-transform: rotateX(0deg) translateZ(25px);
+            -o-transform: rotateX(0deg) translateZ(25px);
+        }
+        .back{
+            transform: rotateX(-90deg) translateZ(25px);
+            -webkit-transform: rotateX(-90deg) translateZ(25px);
+            -moz-transform: rotateX(-90deg) translateZ(25px);
+            -ms-transform: rotateX(-90deg) translateZ(25px);
+            -o-transform: rotateX(-90deg) translateZ(25px);
+        }
+        .nav a:hover .front,
+        .nav a:hover .back,
+        .nav a.active .front,
+        .nav a.active .back{
+            background-color:#66CCFF;
+            background-size:5px 5px;
+            background-image:linear-gradient(45deg, #CCCCFF 25%, transparent 25%, transparent 75%, #CCCCFF 75%, #CCCCFF);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="nav">
+            <li><a href="#1" class="three-d active">首页
+                <span class="three-d-box">
+                    <span class="front">首页</span>
+                    <span class="back">首页</span>
+                </span>
+            </a></li>
+            <li><a href="#1" class="three-d">欢乐谷
+                <span class="three-d-box">
+                    <span class="front">欢乐谷</span>
+                    <span class="back">欢乐谷</span>
+                </span>
+            </a></li>
+            <li><a href="#1" class="three-d">华侨城
+                <span class="three-d-box">
+                    <span class="front">华侨城</span>
+                    <span class="back">华侨城</span>
+                </span>
+            </a></li>
+            <li><a href="#1" class="three-d">锦绣中华
+                <span class="three-d-box">
+                    <span class="front">锦绣中华</span>
+                    <span class="back">锦绣中华</span>
+                </span>
+            </a></li>
+            <li><a href="#1" class="three-d">世界之窗
+                <span class="three-d-box">
+                    <span class="front">世界之窗</span>
+                    <span class="back">世界之窗</span>
+                </span>
+            </a></li>
+            <li><a href="#1" class="three-d">深圳旅游
+                <span class="three-d-box">
+                    <span class="front">深圳旅游</span>
+                    <span class="back">深圳旅游</span>
+                </span>
+            </a></li>
+        </ul>
+    </div>
+</body>
+</html>
